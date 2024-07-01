@@ -1,0 +1,64 @@
+<button (click)="handleNavigate()">Navigate To EX</button>
+
+<h1>String Interpolation</h1>
+{{ title }}
+<h1>Property Binding</h1>
+<br />
+<input [type]="inputType" />
+<h1>Two way data binding</h1>
+<input type="text" [(ngModel)]="text" />{{ text }}
+<br />
+<br />
+{{ stateName }}
+<select [(ngModel)]="stateName">
+  <option value="">Select</option>
+  <option value="Australia">Australia</option>
+  <option value="India">India</option>
+  <option value="Goa">Goa</option>
+</select>
+
+<h1>Signals</h1>
+{{ firstName() }}
+<br />
+{{ courseName }}
+<button (click)="change()">Change the text value</button>
+
+<h1>Structural Directives</h1>
+<h3>ngIf</h3>
+<p *ngIf="showText">Text should be shown</p>
+<button (click)="handleButton()">Toggle</button>
+<h3>ngFor</h3>
+<ul>
+  <li *ngFor="let city of cityNames">{{ city }}</li>
+</ul>
+<ul>
+  @for(city of cityNames;track $index){
+  <li>{{ city }}</li>
+  }
+</ul>
+<select [(ngModel)]="selectedStudentId">
+  <option [ngValue]="null" disabled selected>Select a student</option>
+  <option
+    *ngFor="let values of studentDetails; let srNo = index"
+    value="{{ values.id }}"
+  >
+    {{ values.name }}
+  </option>
+</select>
+
+<p [ngClass]="textColor ? 'text' : 'tex'">Text</p>
+<button (click)="handleColor()">Change text color</button>
+
+<p [ngStyle]="{ color: color }">Text color blue</p>
+
+<input [(ngModel)]="switchText" />
+
+@switch (switchText) { @case("0"){
+<span>0</span>
+} @case("1"){
+<span>1</span>
+}@case("2"){
+<span>2</span>
+} @default {
+<span>Something went wrong</span>
+} }
